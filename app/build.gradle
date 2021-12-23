@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 31
+
+    defaultConfig {
+        applicationId "com.jsikmc15.fcmapptest"
+        minSdkVersion 27
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    testImplementation 'junit:junit:4.12'
+    //오레오 이전버전만 사용
+    //implementation platform('com.google.firebase:firebase-bom:29.0.3')
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    // https://mvnrepository.com/artifact/com.google.firebase/firebase-messaging
+    implementation group: 'com.google.firebase', name: 'firebase-messaging', version: '23.0.0'
+
+    // https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit
+    implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.9.0'
+
+    //String 응답 컨버터
+    // https://mvnrepository.com/artifact/com.squareup.retrofit2/converter-scalars
+    implementation group: 'com.squareup.retrofit2', name: 'converter-scalars', version: '2.9.0'
+
+
+
+
+}
